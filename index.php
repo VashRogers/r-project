@@ -1,8 +1,10 @@
-<div class="home">Olá mundo</div>
+<div class="home">
+    <h1>Bem-Vindo Roger</h1>
+</div>
 
 <style>
     .home{
         display: flex;
-        align-self: center;
+        justify-content: center;
     }
 </style>
