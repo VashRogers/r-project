@@ -32,7 +32,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="password">Senha</label>
+                    <label for="password">Senha </label>
                     <input type="password" id="password" name="password"
                         class="form-control" placeholder="Digite sua senha"
                         
