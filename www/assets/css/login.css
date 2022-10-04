@@ -1,3 +1,22 @@
-h1 {
-    color: 'red';
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DDD;
+}
+
+.form-login{
+    flex-basis: 450px;
+}
+
+.card-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-footer{
+    display: flex;
+    justify-content: flex-end;
 }
