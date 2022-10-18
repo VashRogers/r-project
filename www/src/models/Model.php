@@ -25,13 +25,15 @@ class Model {
         $this->values[$key] = $value;
     }
 
-    public static function get($filters = [], $columns = '*') {
+    public static function get($filters = [], $columns = '*')
+    {
         $objects = [];
         $result = static::getResultSetFromSelect($filters, $columns);
-        
-        if($result){
-            $class = get_called_class();
-            while($row = $result->fetch_assoc()){
+
+        if ($result) {
+            $class = get_called_class(); // Obtém o nome da classe em que o método estático é chamado.
+
+            while ($row = $result->fetch_assoc()) {
                 array_push($objects, new $class($row));
             }
         }
@@ -39,10 +41,22 @@ class Model {
         return $objects;
     }
 
+    public static function getOne($filters = [], $columns = '*') {
+        $class = get_called_class();
+     
+        $result = static::getResultSetFromSelect($filters, $columns);
+        
+        return $result ? new $class($result->fetch_assoc()) : null;
+    }
+
     public static function getResultSetFromSelect($filters = [], $columns = '*') {
-        $sql = "SELECT ${columns} FROM " . static::$tablename . " " . static::getFilters($filters);
+        // var_dump($filters);
+        $sql = "SELECT $columns FROM " . static::$tablename . " " . static::getFilters($filters);
+        var_dump($sql);
         
         $result = Database::getResultFromQuery($sql);
+        var_dump($result);
+
         if($result->num_rows === 0){
             return null;
         }
