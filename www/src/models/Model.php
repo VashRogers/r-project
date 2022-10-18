@@ -52,11 +52,9 @@ class Model {
     public static function getResultSetFromSelect($filters = [], $columns = '*') {
         // var_dump($filters);
         $sql = "SELECT $columns FROM " . static::$tablename . " " . static::getFilters($filters);
-        var_dump($sql);
         
         $result = Database::getResultFromQuery($sql);
-        var_dump($result);
-
+       
         if($result->num_rows === 0){
             return null;
         }
