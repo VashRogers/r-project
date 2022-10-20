@@ -13,12 +13,21 @@
 
     <title>R-Ponto</title>
 </head>
+    <script>
+        let str = 'ROGER'
+        console.log(str)
+        setTimeout(() => {
+            document.getElementById('titulo').innerHTML = str
+            // alert(str);
+        }, 5000)
+
+    </script>
 <body>
-    <form class="form-login" action="#" method="POST">
+    <form class="form-login" action="#" method="POST" name="forma">
         <div class="login-card card">
             <div class="card-header">
                 <i class="icofont-user-suited mr-2"></i>
-                <span class="font-weight-bold">R</span>
+                <span class="font-weight-bold" id="titulo">R</span>
                 <span class="font-weight-light">-Ponto</span>
             </div>
             
@@ -28,6 +37,7 @@
                     <input type="email" id="email" name="email"
                         class="form-control" placeholder="Digite seu email"
                         autofocus
+                        value="<?= $email ?>"
                     >
                 </div>
                 
@@ -45,8 +55,8 @@
                 <button class="btn btn-lg btn-primary">Entrar</button>
             </div>
         </div>
-
     </form>
+    
 </body>
 
 </html>
