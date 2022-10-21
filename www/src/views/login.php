@@ -31,22 +31,29 @@
                 <span class="font-weight-light">-Ponto</span>
             </div>
             
+            
             <div class="card-body">
+                <?php include(TEMPLATE_PATH . '/messages.php') ?>
                 <div class="form-group">
                     <label for="email">E-Mail</label>
                     <input type="email" id="email" name="email"
-                        class="form-control" placeholder="Digite seu email"
+                        class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>" placeholder="Digite seu email"
                         autofocus
                         value="<?= $email ?>"
                     >
+                    <div class="invalid-feedback">
+                        <?= $errors['email'] ?>
+                    </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="password">Senha </label>
                     <input type="password" id="password" name="password"
-                        class="form-control" placeholder="Digite sua senha"
-                        
+                        class="form-control <?= $errors['password'] ? 'is-invalid' : '' ?>" placeholder="Digite sua senha"   
                     >
+                    <div class="invalid-feedback">
+                        <?= $errors['password'] ?>
+                    </div>
                 </div>
                 
             </div>
